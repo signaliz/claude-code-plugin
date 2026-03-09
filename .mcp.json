@@ -1,0 +1,6 @@
+{
+  "signaliz": {
+    "type": "http",
+    "url": "https://api.signaliz.com/functions/v1/signaliz-mcp"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "signaliz",
+  "description": "GTM data quality and enrichment plugin powered by Signaliz. Find verified professional emails, verify email deliverability, and enrich companies with hiring, funding, and tech stack signals — all from Claude Code.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Signaliz",
+    "url": "https://signaliz.com"
+  },
+  "homepage": "https://github.com/signaliz/claude-code-plugin",
+  "repository": "https://github.com/signaliz/claude-code-plugin",
+  "license": "MIT",
+  "categories": ["data-enrichment", "sales", "gtm"],
+  "tags": ["email-finder", "email-verification", "company-signals", "gtm", "outbound", "data-quality", "mcp"]
+}
