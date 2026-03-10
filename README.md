@@ -9,6 +9,19 @@ Powered by three integrated platforms:
 
 ---
 
+## Ecosystem
+
+This plugin is part of the Signaliz open-source ecosystem for Claude Code:
+
+| Repository | Description |
+|------------|-------------|
+| **[signaliz/claude-code-plugin](https://github.com/signaliz/claude-code-plugin)** (this repo) | Core plugin — MCP connections, commands, and configuration |
+| **[signaliz/claude-code-skills](https://github.com/signaliz/claude-code-skills)** | All 6 skills — find companies, find people, find/verify emails, company signals, and the full lead gen pipeline |
+| **[signaliz/signaliz-workflows](https://github.com/signaliz/signaliz-workflows)** | Advanced multi-step workflows and automations built on top of the plugin |
+| **[signaliz/lead-gen-toolkit](https://github.com/signaliz/lead-gen-toolkit)** | Standalone lead generation toolkit — templates, CSV processors, and ICP builders |
+
+---
+
 ## Quick Start
 
 ### 1. Install the Plugin
@@ -31,8 +44,6 @@ claude --plugin-dir ./signaliz-plugin
 | Instantly | [instantly.ai](https://instantly.ai) → Settings → API Keys | See Instantly dashboard |
 
 ### 3. Connect the MCPs
-
-Run these commands in your terminal to connect all three services:
 
 ```bash
 # Signaliz — email finding, verification, and company signals
@@ -132,6 +143,8 @@ Build an outbound campaign targeting VP of Engineering at Series B+ fintech comp
 3. **Find & verify emails** for each contact (Signaliz)
 4. **Push leads** to an Instantly campaign with enrichment data for personalization
 
+> Skills are maintained in [signaliz/claude-code-skills](https://github.com/signaliz/claude-code-skills). For advanced multi-step workflows, see [signaliz/signaliz-workflows](https://github.com/signaliz/signaliz-workflows).
+
 ---
 
 ## Batch Processing
@@ -154,6 +167,21 @@ Find verified emails for the VP of Sales at the top 20 B2B SaaS companies
 - **execute_primitive** (Signaliz): Up to 25 records per call (instant results)
 - **find_and_verify_emails / verify_emails / enrich_company_signals** (Signaliz): Up to 5,000 records per job (async with polling)
 - **add_leads_to_campaign_or_list_bulk** (Instantly): Bulk lead upload to campaigns
+
+---
+
+## Skills
+
+The plugin includes six auto-triggered skills (maintained in [claude-code-skills](https://github.com/signaliz/claude-code-skills)):
+
+| Skill | Triggers On | Platform |
+|-------|-------------|----------|
+| **find-companies-octave** | "find companies", "target accounts", "companies like [X]", "ICP matching" | Octave |
+| **find-people-octave** | "find people", "find contacts", "decision makers", "prospect list" | Octave |
+| **find-verified-emails** | "find email", "email lookup", "get their email" | Signaliz |
+| **verify-emails** | "verify emails", "check deliverability", "validate" | Signaliz |
+| **company-signals** | "company research", "signals", "hiring", "funding" | Signaliz |
+| **lead-generation-pipeline** | "lead gen pipeline", "outbound campaign", "find and email", "full pipeline" | All three |
 
 ---
 
@@ -236,21 +264,6 @@ claude mcp add instantly --transport http --url "https://mcp.instantly.ai/mcp?ap
 
 ---
 
-## Skills
-
-The plugin includes six auto-triggered skills that activate when Claude detects relevant requests:
-
-| Skill | Triggers On | Platform |
-|-------|-------------|----------|
-| **find-companies-octave** | "find companies", "target accounts", "companies like [X]", "ICP matching" | Octave |
-| **find-people-octave** | "find people", "find contacts", "decision makers", "prospect list" | Octave |
-| **find-verified-emails** | "find email", "email lookup", "get their email" | Signaliz |
-| **verify-emails** | "verify emails", "check deliverability", "validate" | Signaliz |
-| **company-signals** | "company research", "signals", "hiring", "funding" | Signaliz |
-| **lead-generation-pipeline** | "lead gen pipeline", "outbound campaign", "find and email", "full pipeline" | All three |
-
----
-
 ## Pricing
 
 ### Signaliz
@@ -269,6 +282,16 @@ See [octave.run](https://octave.run) for pricing details.
 
 ### Instantly
 See [instantly.ai/pricing](https://instantly.ai/pricing) for pricing details.
+
+---
+
+## Related Repositories
+
+- **[signaliz/claude-code-skills](https://github.com/signaliz/claude-code-skills)** — The 6 skills that power this plugin: find companies, find people, find/verify emails, company signals, and the full lead generation pipeline. Install these alongside the plugin or use them standalone.
+
+- **[signaliz/signaliz-workflows](https://github.com/signaliz/signaliz-workflows)** — Pre-built multi-step workflows and automations: ICP-to-campaign pipelines, account-based outreach sequences, competitive intelligence reports, and more. Built on top of this plugin.
+
+- **[signaliz/lead-gen-toolkit](https://github.com/signaliz/lead-gen-toolkit)** — Standalone lead generation toolkit with CSV templates, ICP builder tools, email sequence generators, and batch processing utilities. Works independently or alongside the plugin.
 
 ---
 
