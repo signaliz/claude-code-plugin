@@ -1,7 +1,7 @@
 {
   "name": "signaliz",
-  "description": "GTM data quality and enrichment plugin powered by Signaliz. Find verified professional emails, verify email deliverability, and enrich companies with hiring, funding, and tech stack signals — all from Claude Code.",
-  "version": "1.0.0",
+  "description": "Lead generation and GTM data plugin powered by Signaliz, Octave, and Instantly. Find companies and people (Octave), discover and verify emails (Signaliz), and push leads to outbound campaigns (Instantly) — all from Claude Code.",
+  "version": "2.0.0",
   "author": {
     "name": "Signaliz",
     "url": "https://signaliz.com"
@@ -9,6 +9,20 @@
   "homepage": "https://github.com/signaliz/claude-code-plugin",
   "repository": "https://github.com/signaliz/claude-code-plugin",
   "license": "MIT",
-  "categories": ["data-enrichment", "sales", "gtm"],
-  "tags": ["email-finder", "email-verification", "company-signals", "gtm", "outbound", "data-quality", "mcp"]
+  "categories": ["data-enrichment", "sales", "gtm", "lead-generation", "outbound"],
+  "tags": [
+    "email-finder",
+    "email-verification",
+    "company-signals",
+    "lead-generation",
+    "find-companies",
+    "find-people",
+    "outbound-campaigns",
+    "gtm",
+    "data-quality",
+    "octave",
+    "instantly",
+    "signaliz",
+    "mcp"
+  ]
 }
