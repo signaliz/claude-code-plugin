@@ -1,43 +1,53 @@
 ---
 name: lead-generation-pipeline
 description: >
-  End-to-end lead generation pipeline: find leads with Octave, verify emails
-  with Signaliz, and push to Instantly campaigns. Trigger when the user asks
-  to: run a lead gen pipeline, build and launch an outbound campaign, find
-  leads and add them to a campaign, prospect and outreach, full pipeline,
-  generate leads for a campaign, or end-to-end outbound. Also trigger on
-  phrases like "find leads and email them", "build a campaign for [ICP]",
+  End-to-end lead generation pipeline: find leads with Octave, discover contacts
+  with Lusha/Apollo, verify emails with Signaliz, research with Crunchbase,
+  push to Instantly/Outreach campaigns, and track in Affinity CRM. Trigger when
+  the user asks to: run a lead gen pipeline, build and launch an outbound
+  campaign, find leads and add them to a campaign, prospect and outreach, full
+  pipeline, generate leads for a campaign, or end-to-end outbound. Also trigger
+  on phrases like "find leads and email them", "build a campaign for [ICP]",
   "outbound pipeline", "prospect into [company/industry]", or "find, verify,
   and campaign".
-version: 1.0.0
+version: 2.0.0
 ---
 
 # Lead Generation Pipeline
 
-End-to-end outbound pipeline: **Find leads (Octave)** → **Find & verify emails (Signaliz)** → **Push to campaign (Instantly)**.
+End-to-end outbound pipeline leveraging all connected platforms:
+
+**Find companies (Octave)** → **Research funding (Crunchbase)** → **Find contacts (Octave/Lusha/Apollo)** → **Verify emails (Signaliz)** → **Push to campaign (Instantly/Outreach)** → **Track in CRM (Affinity)**
 
 ## Prerequisites
 
-Three MCPs must be connected:
+Core MCPs must be connected (additional platforms enhance the pipeline):
 
-1. **Octave MCP** — for finding companies and people
-2. **Signaliz MCP** — for finding and verifying emails
-3. **Instantly MCP** — for campaign management and lead delivery
+1. **Octave MCP** — for finding companies and people (core)
+2. **Signaliz MCP** — for finding and verifying emails (core)
+3. **Instantly MCP** — for campaign management and lead delivery (core)
+4. **Lusha MCP** — for contact discovery with phone numbers (optional, enhances contact finding)
+5. **Apollo MCP** — for search and enrichment (optional, enhances contact finding)
+6. **Crunchbase MCP** — for funding and market intelligence (optional, enhances research)
+7. **Outreach MCP** — for multi-channel sequences (optional, alternative to Instantly)
+8. **Affinity MCP** — for CRM pipeline tracking (optional, enhances tracking)
 
-If any tools are missing, guide the user through setup:
+If any core tools are missing, guide the user through setup:
 
 > **Quick setup — run these commands:**
 >
 > ```bash
-> # Octave — company & people intelligence
+> # Core — Octave (company & people intelligence)
 > claude mcp add octave --transport http --url "https://mcp.octave.run/v1?api_key=YOUR_OCTAVE_KEY"
 >
-> # Signaliz — email finding & verification
+> # Core — Signaliz (email finding & verification)
 > claude mcp add signaliz --transport http --url "https://api.signaliz.com/functions/v1/signaliz-mcp?api_key=YOUR_SIGNALIZ_KEY"
 >
-> # Instantly — email campaigns
+> # Core — Instantly (email campaigns)
 > claude mcp add instantly --transport http --url "https://mcp.instantly.ai/mcp?api_key=YOUR_INSTANTLY_KEY"
 > ```
+>
+> Run `/signaliz:setup` for full platform configuration.
 
 Before making MCP calls, use `tool_search` to load tool definitions for each service.
 
@@ -182,3 +192,38 @@ Offer to:
 - Show detailed results for any step
 - Activate the campaign (with user confirmation)
 - Run the pipeline again with different criteria
+
+## Enhanced Pipeline Steps (When Additional Platforms Connected)
+
+### Step 2b: Research Funding (Crunchbase)
+
+If Crunchbase MCP is connected, enrich the company list with funding data:
+
+1. Pull funding rounds for target companies
+2. Filter by funding stage if specified in ICP
+3. Add investor and funding context for personalization
+
+### Step 3b: Discover Contacts (Lusha / Apollo)
+
+If Lusha or Apollo MCPs are connected, supplement Octave's people search:
+
+1. **Lusha `prospecting`** — discover additional contacts with phone numbers
+2. **Apollo search** — cross-reference and fill gaps
+3. Merge results, deduplicate by email/name+company
+
+### Step 5b: Multi-Channel Sequences (Outreach)
+
+If Outreach MCP is connected, offer as an alternative or complement to Instantly:
+
+1. Create or select an Outreach sequence
+2. Enroll prospects with personalization
+3. Use Outreach for enterprise multi-touch, Instantly for high-volume cold email
+
+### Step 6: Track in CRM (Affinity)
+
+If Affinity MCP is connected, push pipeline data to CRM:
+
+1. Add companies to an Affinity list (or create one)
+2. Add contacts as linked entities
+3. Set field values (campaign name, source, date, ICP score)
+4. Pipeline tracking from prospecting through close
