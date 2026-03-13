@@ -2,5 +2,48 @@
   "signaliz": {
     "type": "http",
     "url": "https://api.signaliz.com/functions/v1/signaliz-mcp"
+  },
+  "instantly": {
+    "type": "http",
+    "url": "https://mcp.instantly.ai/mcp",
+    "_note": "Add ?api_key=YOUR_INSTANTLY_API_KEY to URL. For multi-workspace, see skills/instantly-workspaces/SKILL.md"
+  },
+  "manus": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["manus-mcp"],
+    "env": {
+      "MANUS_MCP_API_KEY": ""
+    }
+  },
+  "outreach": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["mcp-remote", "https://api.outreach.io/mcp/"],
+    "_note": "Requires Outreach Amplify license with active credits"
+  },
+  "lusha": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["@lusha-org/mcp@latest"],
+    "env": {
+      "LUSHA_API_KEY": ""
+    }
+  },
+  "crunchbase": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["@cyreslab/crunchbase-mcp-server"],
+    "env": {
+      "CRUNCHBASE_API_KEY": ""
+    }
+  },
+  "apollo": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["@thevgergroup/apollo-io-mcp"],
+    "env": {
+      "APOLLO_API_KEY": ""
+    }
   }
 }

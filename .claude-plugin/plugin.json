@@ -1,7 +1,7 @@
 {
   "name": "signaliz",
-  "description": "Lead generation and GTM data plugin powered by Signaliz, Octave, and Instantly. Find companies and people (Octave), discover and verify emails (Signaliz), and push leads to outbound campaigns (Instantly) — all from Claude Code.",
-  "version": "2.0.0",
+  "description": "Full-stack GTM plugin — lead generation, CRM enrichment, outbound campaigns, and market intelligence. Integrates Signaliz, Octave, Instantly, Affinity CRM, Lusha, Apollo, Outreach, Crunchbase, Manus AI, SourceScrub, and AlphaSense via MCP.",
+  "version": "3.0.0",
   "author": {
     "name": "Signaliz",
     "url": "https://signaliz.com"
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/signaliz/claude-code-plugin",
   "repository": "https://github.com/signaliz/claude-code-plugin",
   "license": "MIT",
-  "categories": ["data-enrichment", "sales", "gtm", "lead-generation", "outbound"],
+  "categories": ["data-enrichment", "sales", "gtm", "lead-generation", "outbound", "crm", "market-intelligence"],
   "tags": [
     "email-finder",
     "email-verification",
@@ -23,6 +23,16 @@
     "octave",
     "instantly",
     "signaliz",
-    "mcp"
+    "affinity",
+    "lusha",
+    "apollo",
+    "outreach",
+    "crunchbase",
+    "manus",
+    "sourcescrub",
+    "alphasense",
+    "mcp",
+    "crm",
+    "market-intelligence"
   ]
 }
